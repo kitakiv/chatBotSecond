@@ -1,12 +1,12 @@
-import { Context, Telegraf } from 'telegraf'
-import { message } from 'telegraf/filters'
+
+import { message } from 'telegraf/filters';
+import { Context, Telegraf } from 'telegraf';
 
 interface MyContext extends Context {
   myProp?: string
   myOtherProp?: number
 }
 const token = '7445498364:AAHRctZm3khsd_NPTos1-hsAEdVUQv86pcs'
-console.log(token)
 
 const bot = new Telegraf<MyContext>(token)
 bot.start((ctx) => ctx.reply('Welcome'))
