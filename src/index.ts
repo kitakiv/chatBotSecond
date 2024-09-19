@@ -6,18 +6,16 @@ import readExcelFromURL from './readexcel';
 import { InlineKeyboardButton, ReplyKeyboardRemove, KeyboardButton } from 'telegraf/typings/core/types/typegram';
 import { Markup } from 'telegraf';
 import makeNames from './names';
+import { config } from 'dotenv';
+config();
 interface MyContext extends Context {
   myProp?: string
   myOtherProp?: number
 }
-const token = '7445498364:AAHRctZm3khsd_NPTos1-hsAEdVUQv86pcs';
 
 
-const bot = new Telegraf<MyContext>(token);
+const bot = new Telegraf<MyContext>(process.env.BOT_TOKEN!);
 bot.start((ctx) => {
-  // const replyMarkup = Markup.removeKeyboard() as unknown as ReplyKeyboardRemove;
-  // ctx.reply('Hello!', { reply_markup: replyMarkup });
-// }
 ctx.reply('Welcome');
 })
 
